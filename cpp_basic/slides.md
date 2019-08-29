@@ -58,7 +58,6 @@ int main () {
     std::cout << "Hello ICED!!!" << std::endl;
 }
 ```
-<!-- pandoc -t revealjs -s -o slides.html slides.md -V revealjs-url=https://revealjs.com -->
 
 ## Header
 
