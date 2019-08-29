@@ -7,4 +7,4 @@ title: 第五屆競賽組投影片
 
 ## C++  Basic
 
-[Slides](https://google.com)
+[Slides](cpp_basic/slides.html)
