@@ -8,3 +8,9 @@ title: 第五屆競賽組投影片
 ## C++  Basic
 
 [Slides](cpp_basic/slides.html)
+
+# 其他
+
+## 傳送門
+
+[github repo](https://github.com/dl8sd11/iced_cp_5th)
