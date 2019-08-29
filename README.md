@@ -15,3 +15,13 @@
 - Tree 0	            (ToMmyDong)
 - Data Structure 1	    (ToMmyDong)
 - Tree 1	            (ToMmyDong)
+
+## 編譯指令
+
+```
+pandoc -t revealjs -s -o $1.html $1.md -V revealjs-url=https://revealjs.com
+```
+
+## Contribute
+
+課程內容建議、修正、問題都開放貢獻
