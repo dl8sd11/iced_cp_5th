@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="ToMmyDong">
+  <title>競賽入門</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">競賽入門</h1>
+  <p class="author">ToMmyDong</p>
+  <p class="date">September ??, 2019</p>
+</section>
+
+<section><section id="自我介紹" class="titleslide slide level1"><h1>自我介紹</h1></section><section id="陳冠辰" class="slide level2">
+<h2>陳冠辰</h2>
+<ul>
+<li>社團老屁股 [0th, 5th]</li>
+<li>4th 社長</li>
+<li>IOI 1!</li>
+<li>tmd910607@gmail.com</li>
+</ul>
+</section><section id="my-lecture" class="slide level2">
+<h2>My Lecture</h2>
+<p>上學期</p>
+<ul>
+<li>C++ Basic</li>
+<li>Data Structure 1</li>
+<li>Tree 0</li>
+<li>Tree 1</li>
+</ul>
+</section></section>
+<section><section id="競賽程式" class="titleslide slide level1"><h1>競賽程式</h1></section><section id="簡單來說" class="slide level2">
+<h2>簡單來說</h2>
+<p>輸入-&gt;輸出-&gt;Accepted</p>
+</section><section id="online-judge" class="slide level2">
+<h2>Online Judge</h2>
+<ul>
+<li>Codeforces</li>
+<li>Green Judge</li>
+<li>TIOJ</li>
+<li>TPOJ</li>
+</ul>
+</section><section id="tools" class="slide level2">
+<h2>Tools</h2>
+<ul>
+<li><del>電腦</del></li>
+<li><del>頭腦</del></li>
+<li>編輯器</li>
+<li>編譯器</li>
+</ul>
+</section><section id="or" class="slide level2">
+<h2>Or</h2>
+<p>Dev C++ = 編輯器 + 編譯器</p>
+</section><section id="demo" class="slide level2">
+<h2>Demo</h2>
+</section></section>
+<section><section id="io" class="titleslide slide level1"><h1>I/O</h1></section><section id="hello-iced" class="slide level2">
+<h2>Hello ICED</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+
+<span class="dt">int</span> main () {
+    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Hello ICED!!!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;
+}</code></pre></div>
+<!-- pandoc -t revealjs -s -o slides.html slides.md -V revealjs-url=https://revealjs.com -->
+</section><section id="header" class="slide level2">
+<h2>Header</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></code></pre></div>
+</section><section id="main-function" class="slide level2">
+<h2>main function</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> main () {
+    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Hello ICED!!!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;
+}</code></pre></div>
+</section><section id="cout" class="slide level2">
+<h2>cout</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="bu">std::</span>cout <span class="co">// 輸出</span>
+<span class="bu">std::</span>endl <span class="co">// 換行</span></code></pre></div>
+</section><section id="std" class="slide level2">
+<h2>std??</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="dt">int</span> main () {
+    cout &lt;&lt; <span class="st">&quot;Hello ICED!!!&quot;</span> &lt;&lt; endl;
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+
+<span class="dt">int</span> main () {
+    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Hello ICED!!!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;
+}</code></pre></div>
+</section><section id="input" class="slide level2">
+<h2>Input</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+
+<span class="dt">int</span> main () {
+    <span class="dt">int</span> a, b;               <span class="co">// 宣告兩個變數</span>
+
+    cin &gt;&gt; a &gt;&gt; b;
+    cout &lt;&lt; a + b &lt;&lt; endl;
+}</code></pre></div>
+</section></section>
+<section><section id="運算子" class="titleslide slide level1"><h1>運算子</h1></section><section id="算術運算子" class="slide level2">
+<h2>算術運算子</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> a = <span class="dv">9</span>, b = <span class="dv">4</span>;
+cout &lt;&lt; a + b &lt;&lt; endl;  <span class="co">// 13</span>
+cout &lt;&lt; a - b &lt;&lt; endl;  <span class="co">// 5</span>
+cout &lt;&lt; a * b &lt;&lt; endl;  <span class="co">// 36</span>
+cout &lt;&lt; a / b &lt;&lt; endl;  <span class="co">// 2</span>
+cout &lt;&lt; a % b &lt;&lt; endl;  <span class="co">// 1</span></code></pre></div>
+</section><section id="除法" class="slide level2">
+<h2>除法</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> a = <span class="dv">9</span>, b = <span class="dv">4</span>;
+<span class="dt">double</span> c = <span class="dv">9</span>, d = <span class="dv">4</span>;
+cout &lt;&lt; a / b &lt;&lt; endl;  <span class="co">// 2</span>
+cout &lt;&lt; c / d &lt;&lt; endl;  <span class="co">// 2.25</span>
+cout &lt;&lt; <span class="dt">double</span>(a) / b &lt;&lt; endl;</code></pre></div>
+</section><section id="一個等號" class="slide level2">
+<h2>一個等號</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> a = <span class="dv">1</span>, b = <span class="dv">2</span>;
+<span class="dt">int</span> c = <span class="dv">3</span>;
+c = c + a + b;</code></pre></div>
+</section><section id="算術運算子-等號" class="slide level2">
+<h2>算術運算子 + 等號</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> a = <span class="dv">1</span>, b = <span class="dv">2</span>;
+<span class="dt">int</span> c = <span class="dv">3</span>;
+
+c += a + b;
+<span class="co">/*</span>
+<span class="co">相當於</span>
+<span class="co">c = c + a + b;</span>
+<span class="co">*/</span></code></pre></div>
+</section><section id="比較運算子" class="slide level2">
+<h2>比較運算子</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> a = <span class="dv">3</span>, b = <span class="dv">6</span>;
+cout &lt;&lt; (a &gt; b) &lt;&lt; endl;
+cout &lt;&lt; (a &lt; b) &lt;&lt; endl;
+cout &lt;&lt; (a &gt;= b) &lt;&lt; endl;
+cout &lt;&lt; (a &lt;= b) &lt;&lt; endl;
+cout &lt;&lt; (a == b) &lt;&lt; endl;
+cout &lt;&lt; (a != b) &lt;&lt; endl;</code></pre></div>
+</section></section>
+<section><section id="判斷式" class="titleslide slide level1"><h1>判斷式</h1></section><section id="if...." class="slide level2">
+<h2>if....</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> score;
+cin &gt;&gt; score;
+<span class="cf">if</span> (score &gt;= <span class="dv">60</span>) {
+    cout &lt;&lt; <span class="st">&quot;安全&quot;</span> &lt;&lt; endl;
+} <span class="cf">else</span> <span class="cf">if</span> (score &gt;= <span class="dv">50</span>) {
+    cout &lt;&lt; <span class="st">&quot;補考&quot;</span> &lt;&lt; endl;
+} <span class="cf">else</span> {
+    cout &lt;&lt; <span class="st">&quot;死當&quot;</span> &lt;&lt; endl;
+}</code></pre></div>
+</section><section id="switch" class="slide level2">
+<h2>switch</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">char</span> c;
+cin &gt;&gt; c;
+<span class="cf">switch</span> (c)
+    {
+    <span class="cf">case</span> <span class="st">&#39;A&#39;</span>:
+        cout &lt;&lt; <span class="st">&quot;厲害&quot;</span> &lt;&lt; endl;
+        <span class="cf">break</span>;
+    <span class="cf">case</span> <span class="st">&#39;B&#39;</span>:
+        cout &lt;&lt; <span class="st">&quot;普通&quot;</span> &lt;&lt; endl;
+        <span class="cf">break</span>;
+    <span class="cf">case</span> <span class="st">&#39;C&#39;</span>:
+        cout &lt;&lt; <span class="st">&quot;有點廢&quot;</span> &lt;&lt; endl;
+        <span class="cf">break</span>;
+    <span class="cf">default</span>:
+        <span class="cf">break</span>;
+    }</code></pre></div>
+</section></section>
+<section><section id="迴圈-1-2-....-100" class="titleslide slide level1"><h1>迴圈 1 + 2 + .... + 100</h1></section><section id="while-loop" class="slide level2">
+<h2>while loop</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> sum = <span class="dv">0</span>, i = <span class="dv">1</span>;
+<span class="cf">while</span> (i &lt;= <span class="dv">100</span>) {
+    sum += i;
+    i++;
+}</code></pre></div>
+</section><section id="for-loop" class="slide level2">
+<h2>for loop</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> sum = <span class="dv">0</span>;
+<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt;= <span class="dv">100</span>; i++) {
+    sum += i;
+}</code></pre></div>
+</section></section>
+<section><section id="data-structure" class="titleslide slide level1"><h1>Data Structure</h1></section><section id="d-array" class="slide level2">
+<h2>1D array</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> fab[<span class="dv">10</span>];
+fab[<span class="dv">0</span>] = <span class="dv">0</span>;
+fab[<span class="dv">1</span>] = <span class="dv">1</span>;
+<span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">2</span>; i &lt; <span class="dv">10</span>; i++) {
+    fab[i] = fab[i - <span class="dv">1</span>] + fab[i - <span class="dv">2</span>];
+}</code></pre></div>
+</section><section id="d-array-1" class="slide level2">
+<h2>2D array</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> fab[<span class="dv">10</span>][<span class="dv">10</span>];
+fab[<span class="dv">2</span>][<span class="dv">3</span>] = <span class="dv">4</span>;
+cout &lt;&lt; fab[<span class="dv">2</span>][<span class="dv">3</span>] &lt;&lt; endl;</code></pre></div>
+</section><section id="nd-array" class="slide level2">
+<h2>ND array</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> fab[<span class="dv">10</span>][<span class="dv">10</span>][<span class="dv">10</span>][<span class="dv">10</span>]...[<span class="dv">10</span>];</code></pre></div>
+</section><section id="more..." class="slide level2">
+<h2>More...</h2>
+<p>Standard Template Library (STL)</p>
+<ul>
+<li>pair, tuple</li>
+<li>vector, string</li>
+<li>set, map, multiset, multimap</li>
+<li>priority_queue</li>
+<li>queue, stack, deque</li>
+</ul>
+</section></section>
+<section><section id="scope" class="titleslide slide level1"><h1>Scope</h1></section><section id="外而內" class="slide level2">
+<h2>外而內</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">    <span class="dt">int</span> a;
+    <span class="cf">if</span> (<span class="kw">true</span>) {
+        cout &lt;&lt; a &lt;&lt; endl;
+        <span class="dt">int</span> b;
+    }
+
+    <span class="co">/* cout &lt;&lt; b &lt;&lt; endl;  Compiler Error*/</span></code></pre></div>
+</section><section id="global-variable" class="slide level2">
+<h2>Global Variable</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">    <span class="dt">int</span> a; <span class="co">// Global Variable</span>
+
+    <span class="dt">int</span> main () {
+        <span class="co">/* Code */</span>
+    }</code></pre></div>
+</section></section>
+<section><section id="coding-style" class="titleslide slide level1"><h1>Coding Style</h1></section><section id="真的很重要" class="slide level2">
+<h2>真的很重要</h2>
+<p>雖然不是每個選手都有遵守 - 減少 bug - 讓別人看得懂 - <del>讓自己看得懂</del></p>
+</section><section id="tabs" class="slide level2">
+<h2>Tabs</h2>
+<p>巢狀結構要加 Tab</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="cf">if</span> (<span class="kw">true</span>) {
+    <span class="cf">for</span> (; ;) {
+        <span class="cf">while</span> (<span class="kw">true</span>) {
+
+        }
+    }
+}</code></pre></div>
+</section><section id="wide-4-wide" class="slide level2">
+<h2>2 wide 4 wide</h2>
+<p>you decide :)</p>
+</section><section id="大括號位置" class="slide level2">
+<h2>大括號位置</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="cf">if</span> (<span class="kw">true</span>) {
+
+}
+
+<span class="cf">if</span> (<span class="kw">true</span>) 
+{
+
+}</code></pre></div>
+</section><section id="命名" class="slide level2">
+<h2>命名</h2>
+<p>盡量統一且有意義</p>
+<ul>
+<li>veryMeaningfulName</li>
+<li>meaningful_name_seperated_by_dash</li>
+</ul>
+</section><section id="base-1-base" class="slide level2">
+<h2>0 base / 1 base</h2>
+<p>固定就好</p>
+</section><section id="速度和品質的取捨" class="slide level2">
+<h2>速度和品質的取捨</h2>
+<p>test</p>
+</section></section>
+<section><section id="end" class="titleslide slide level1"><h1>End</h1></section><section id="homework" class="slide level2">
+<h2>Homework</h2>
+<ul>
+<li><a href="http://www.tcgs.tc.edu.tw:1218/Problems?tab=tab00">Green Judge A000 ~ A050</a></li>
+</ul>
+</section><section id="learn-more" class="slide level2">
+<h2>Learn More</h2>
+<ul>
+<li><a href="https://tioj.ck.tp.edu.tw/articles/5">TIOJ 2016建中校內培訓講義</a></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+              { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
