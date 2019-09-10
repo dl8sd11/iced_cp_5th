@@ -1,12 +1,13 @@
 ---
 author: ToMmyDong
 title: 競賽入門
-date: September ??, 2019
+date: September 10th, 2019
 ---
 # 自我介紹
 
 ## 陳冠辰
 
+- 各大平台 ID: ToMmyDong
 - 社團老屁股 [0th, 5th]
 - 4th 社長
 - IOI 1!
