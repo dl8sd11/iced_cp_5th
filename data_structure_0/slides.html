@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="coldEr66">
+  <title>Data Structure 0</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Data Structure 0</h1>
+  <p class="author">coldEr66</p>
+  <p class="date">October 2nd, 2019</p>
+</section>
+
+<section><section id="自我介紹" class="titleslide slide level1"><h1>自我介紹</h1></section><section id="黃迺絜" class="slide level2">
+<h2>黃迺絜</h2>
+<ul>
+<li>各大平台 ID: coldEr66</li>
+<li>4th 副社長</li>
+<li>TOI 1!</li>
+<li>109 學測考生</li>
+<li>seal1000402@gmail.com</li>
+</ul>
+</section><section id="my-lecture" class="slide level2">
+<h2>My lecture</h2>
+<ul>
+<li>Data Structure 0</li>
+<li>Graph</li>
+<li>Shortest path</li>
+</ul>
+</section><section id="今天要介紹的" class="slide level2">
+<h2>今天要介紹的</h2>
+<ul>
+<li>STL</li>
+<li>並查集(disjoint set)</li>
+</ul>
+</section></section>
+<section><section id="stl" class="titleslide slide level1"><h1>STL</h1></section><section id="standard-template-library" class="slide level2">
+<h2>standard template library</h2>
+<ul>
+<li>vector</li>
+<li>stack</li>
+<li>queue</li>
+<li>deque</li>
+<li>priority_queue</li>
+<li>set/map</li>
+<li>list</li>
+</ul>
+</section></section>
+<section><section id="vector" class="titleslide slide level1"><h1>vector</h1></section><section id="動態的陣列" class="slide level2">
+<h2>動態的陣列</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>push_back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pop_back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>size</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>empty</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="來看看實作" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="stack" class="titleslide slide level1"><h1>stack</h1></section><section id="堆疊filo" class="slide level2">
+<h2>堆疊(FILO)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>push</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pop</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>size</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>empty</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>top</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="來看看實作-1" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="queue" class="titleslide slide level1"><h1>queue</h1></section><section id="佇列fifo" class="slide level2">
+<h2>佇列(FIFO)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>push</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pop</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>size</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>empty</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>front</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="來看看實作-2" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="deque" class="titleslide slide level1"><h1>deque</h1></section><section id="雙向佇列" class="slide level2">
+<h2>雙向佇列</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>push_back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>push_front</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>pop_back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pop_front</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>front</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>back</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="來看看實作-3" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="priority_queue" class="titleslide slide level1"><h1>priority_queue</h1></section><section id="優先佇列" class="slide level2">
+<h2>優先佇列</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>push</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pop</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>top</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="來看看實作-4" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="setmap" class="titleslide slide level1"><h1>set/map</h1></section><section id="set" class="slide level2">
+<h2>set</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>insert</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>erase</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>count</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>lower_bound</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="map" class="slide level2">
+<h2>map</h2>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>count</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(lg(n))</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</section><section id="multiset" class="slide level2">
+<h2>multiset</h2>
+</section><section id="來看看實作-5" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="list-沒人認識我" class="titleslide slide level1"><h1>list 沒人認識我&gt;&lt;</h1></section></section>
+<section><section id="並查集-disjoint-set" class="titleslide slide level1"><h1>並查集 disjoint set</h1></section><section id="顧名思義" class="slide level2">
+<h2>顧名思義</h2>
+<ul>
+<li>合併</li>
+<li>查找</li>
+</ul>
+</section><section id="原理" class="slide level2">
+<h2>原理</h2>
+<ul>
+<li>路徑壓縮</li>
+<li>啟發式合併</li>
+</ul>
+</section><section id="來看看實作-6" class="slide level2">
+<h2>來看看實作</h2>
+</section></section>
+<section><section id="end" class="titleslide slide level1"><h1>end</h1></section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+              { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
