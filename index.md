@@ -13,6 +13,12 @@ title: 第五屆競賽組投影片
                                                                             
 [Slides](complexity/slides.html)
 
+# 資料結構
+
+## STL and Disjoint Set
+
+[Slides](data_structure_0/slides.html)
+
 
 # 其他
 
