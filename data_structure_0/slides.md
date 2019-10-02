@@ -23,7 +23,18 @@ date: October 2nd, 2019
  - STL
  - 並查集(disjoint set)
 
+## 先丟個題目
 
+  -  [GJ e025](http://www.tcgs.tc.edu.tw:1218/ShowProblem?problemid=e025)
+  -  [TIOJ 1231](https://tioj.ck.tp.edu.tw/problems/1231)
+  -  [TIOJ 1012](https://tioj.ck.tp.edu.tw/problems/1012)
+  -  [TIOJ 1202](https://tioj.ck.tp.edu.tw/problems/1202)
+  -  [TIOJ 1566](https://tioj.ck.tp.edu.tw/problems/1566)
+  -  [Leetcode](https://leetcode.com/contest/weekly-contest-156/problems/remove-all-adjacent-duplicates-in-string-ii/)
+  -  [CF 1213D2](https://codeforces.com/contest/1213/problem/D2)
+  -  [CF 1218I](https://codeforces.com/contest/1218/problem/I)
+  -  [AIZU 1382](https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Regional/1382?year=2017)
+  
 # STL
 
 ## standard template library
