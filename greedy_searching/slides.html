@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Chris Yang">
+  <title>Greedy &amp; Searching</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Greedy &amp; Searching</h1>
+  <p class="author">Chris Yang</p>
+  <p class="date">October 15th, 2019</p>
+</section>
+
+<section><section id="greedy" class="titleslide slide level1"><h1>Greedy</h1></section><section id="貪心" class="slide level2">
+<h2>貪心</h2>
+<p>每一步都採取對當前狀況最有利的選擇</p>
+<p>並非所有問題採用貪心演算法都能得到最佳解</p>
+<p>ex:背包問題中，永遠選擇cp值最高的物品不一定能達到最佳解</p>
+<p>*背包問題:</p>
+<p>你有n個物品和容量為m的背包，每個物品都有各自的價值跟大小</p>
+<p>你希望選擇某些物品使得物品大小總和小於等於m且物品價值總和最大</p>
+</section><section id="greedy-觀察-假設-證明" class="slide level2">
+<h2>Greedy = 觀察 + 假設 + 證明</h2>
+</section><section id="題目" class="slide level2">
+<h2>題目</h2>
+<p>數線上有n個線段，每個線段有固定的起點<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>l</mi><mi>i</mi></msub><annotation encoding="application/x-tex">l_i</annotation></semantics></math>跟終點<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>i</mi></msub><annotation encoding="application/x-tex">r_i</annotation></semantics></math></p>
+<p>求找出一個最大的線段集合，使得集合中沒有線段重疊</p>
+</section><section id="dp" class="slide level2">
+<h2>DP?</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>l</mi><mo>&lt;</mo><mo>=</mo><mi>r</mi><mo>&lt;</mo><mo>=</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex"> 0 &lt;= l &lt;= r &lt;= 10^9 </annotation></semantics></math></p>
+</section><section id="觀察" class="slide level2">
+<h2>觀察</h2>
+<p>定義<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(i)</annotation></semantics></math>代表區間<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo>,</mo><msup><mn>10</mn><mn>9</mn></msup><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[i,10^9]</annotation></semantics></math>中找得到的最大集合的大小，可以知道<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(i) &gt;= f(i+1)</annotation></semantics></math> (所求即<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-1)</annotation></semantics></math>)</p>
+</section><section id="解法" class="slide level2">
+<h2>解法</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include</span><span class="im">&lt;bit/stdc++.h&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+<span class="dt">int</span> main(){
+    <span class="dt">int</span> n,l,r,ans=<span class="dv">0</span>,x=<span class="dv">-1</span>;
+    vector&lt;<span class="dt">int</span>&gt; seg;
+    cin&gt;&gt;n;
+    <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;n;i++){
+        cin&gt;&gt;l&gt;&gt;r;
+        seg.push_back(mp(l,r));
+    }
+    sort(seg.begin(),seg.end(),[](pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt; a,pair&lt;<span class="dt">int</span>,<span class="dt">int</span>&gt; b){
+        <span class="cf">return</span> a.second&lt;b.second;
+    });
+    <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;n;i++){
+        <span class="cf">if</span>(seg[i].first&gt;x){
+            ans++;x=seg[i].second<span class="dv">+1</span>;
+        }
+    }
+    cout&lt;&lt;ans&lt;&lt;<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;
+}</code></pre></div>
+</section></section>
+<section><section id="binary-search" class="titleslide slide level1"><h1>Binary Search</h1></section><section id="題目-1" class="slide level2">
+<h2>題目</h2>
+<p>給定n個由小到大排的整數跟k，問該n個整數中大於等於k的數中的最小值</p>
+</section><section id="檢查n個數字" class="slide level2">
+<h2>檢查n個數字</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex"> O(N) </annotation></semantics></math></p>
+</section><section id="觀察-1" class="slide level2">
+<h2>觀察</h2>
+<p>如果第i個數小於k，第i-1,i-2...,1個數也都會小於k。</p>
+</section><section id="解" class="slide level2">
+<h2>解</h2>
+<p>已知答案出現在區間(l,r]，令mid=(r+l)/2</p>
+<p>如果a[mid]&gt;=k，則答案不可能會在區間(mid,r]</p>
+<p>反之，答案不可能會在區間(l,mid]</p>
+<p>刪去不可能的區間直到區間大小剩一</p>
+<p>複雜度:每次詢問都會刪掉原先區間的一半 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex"> O(logN) </annotation></semantics></math></p>
+</section><section id="code" class="slide level2">
+<h2>Code</h2>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include</span><span class="im">&lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+<span class="dt">int</span> main(){
+    <span class="dt">int</span> n,k,a[<span class="dv">105</span>];
+    cin&gt;&gt;n&gt;&gt;k;
+    <span class="cf">for</span>(<span class="dt">int</span> i=<span class="dv">1</span>;i&lt;=n;i++)cin&gt;&gt;a[i];
+    <span class="dt">int</span> l=<span class="dv">0</span>,r=n;
+    <span class="cf">while</span>(l&lt;r<span class="dv">-1</span>){
+        <span class="dt">int</span> mid=(r+l)/<span class="dv">2</span>;
+        <span class="cf">if</span>(a[mid]&gt;=k){
+            r=mid;
+        }<span class="cf">else</span>{
+            l=mid;
+        }
+    }
+    cout&lt;&lt;a[r]&lt;&lt;<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;
+}</code></pre></div>
+</section><section id="題外話" class="slide level2">
+<h2>題外話</h2>
+<p>有單調性的東西都可以二分搜</p>
+<p>Greedy算不出來可以考慮對答案二分搜(ex: <a href="http://www.tcgs.tc.edu.tw:1218/ShowProblem?problemid=h098">田忌賽馬</a>)</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+              { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
