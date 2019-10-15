@@ -19,7 +19,7 @@ title: 第五屆競賽組投影片
 
 [Slides](data_structure_0/slides.html)
 
-## Greedy and Searching
+# Greedy and Searching
 
 [Slides](greedy_searching/slides.html)
 
