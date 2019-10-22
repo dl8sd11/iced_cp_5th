@@ -5,7 +5,7 @@ title: 第五屆競賽組投影片
 
 # 基礎
 
-## C++  Basic
+## C++ Basic
 
 [Slides](cpp_basic/slides.html)
 
@@ -23,6 +23,11 @@ title: 第五屆競賽組投影片
 
 [Slides](greedy_searching/slides.html)
 
+# 圖論
+
+## Graph Theory Basic
+
+[Slides](graph_theory_basic/slides.html)
 
 # 其他
 
