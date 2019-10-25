@@ -54,7 +54,7 @@ $$\frac{\frac{n}{k}+k}{2} \geq \sqrt{\frac{n}{k}*k}$$
 
 $$O(\frac{n}{K}+K) \geq O(\sqrt{n})$$
 
-等好發生在 $k = \sqrt{n}$
+等號發生在 $k = \sqrt{n}$
 
 ## 複雜度
 
