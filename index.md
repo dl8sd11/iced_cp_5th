@@ -12,21 +12,27 @@ title: 第五屆競賽組投影片
 
 [Slides](complexity/slides.html)
 
+## Greedy and Searching
+
+[Slides](greedy_searching/slides.html)
+
 # 資料結構
 
 ## STL and Disjoint Set
 
 [Slides](data_structure_0/slides.html)
 
-# Greedy and Searching
-
-[Slides](greedy_searching/slides.html)
-
 # 圖論
 
 ## Graph Theory Basic
 
 [Slides](graph_theory_basic/slides.html)
+
+# Dynamic Programming
+
+## Basic
+
+[Slides](dynamic_programming/DP.html)
 
 # 其他
 

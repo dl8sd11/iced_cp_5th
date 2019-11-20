@@ -9,7 +9,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
   <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -27,37 +32,37 @@
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">第五屆競賽組投影片</h1>
   <p class="author">ToMmyDong, Colder66, ChrisYang</p>
 </section>
 
-<section id="基礎" class="slide level1">
-<h1>基礎</h1>
-<h2 id="c-basic">C++ Basic</h2>
+<section><section id="基礎" class="title-slide slide level1"><h1>基礎</h1></section><section id="c-basic" class="slide level2">
+<h2>C++ Basic</h2>
 <p><a href="cpp_basic/slides.html">Slides</a></p>
-<h2 id="c-complexity">C++ Complexity</h2>
+</section><section id="c-complexity" class="slide level2">
+<h2>C++ Complexity</h2>
 <p><a href="complexity/slides.html">Slides</a></p>
-</section>
-<section id="資料結構" class="slide level1">
-<h1>資料結構</h1>
-<h2 id="stl-and-disjoint-set">STL and Disjoint Set</h2>
-<p><a href="data_structure_0/slides.html">Slides</a></p>
-</section>
-<section id="greedy-and-searching" class="slide level1">
-<h1>Greedy and Searching</h1>
+</section><section id="greedy-and-searching" class="slide level2">
+<h2>Greedy and Searching</h2>
 <p><a href="greedy_searching/slides.html">Slides</a></p>
-</section>
-<section id="圖論" class="slide level1">
-<h1>圖論</h1>
-<h2 id="graph-theory-basic">Graph Theory Basic</h2>
+</section></section>
+<section><section id="資料結構" class="title-slide slide level1"><h1>資料結構</h1></section><section id="stl-and-disjoint-set" class="slide level2">
+<h2>STL and Disjoint Set</h2>
+<p><a href="data_structure_0/slides.html">Slides</a></p>
+</section></section>
+<section><section id="圖論" class="title-slide slide level1"><h1>圖論</h1></section><section id="graph-theory-basic" class="slide level2">
+<h2>Graph Theory Basic</h2>
 <p><a href="graph_theory_basic/slides.html">Slides</a></p>
-</section>
-<section id="其他" class="slide level1">
-<h1>其他</h1>
-<h2 id="傳送門">傳送門</h2>
+</section></section>
+<section><section id="dynamic-programming" class="title-slide slide level1"><h1>Dynamic Programming</h1></section><section id="basic" class="slide level2">
+<h2>Basic</h2>
+<p><a href="dynamic_programming/DP.html">Slides</a></p>
+</section></section>
+<section><section id="其他" class="title-slide slide level1"><h1>其他</h1></section><section id="傳送門" class="slide level2">
+<h2>傳送門</h2>
 <p><a href="https://github.com/dl8sd11/iced_cp_5th">github repo</a></p>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -69,12 +74,14 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
-              { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
