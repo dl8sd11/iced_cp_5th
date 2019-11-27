@@ -28,6 +28,10 @@ title: 第五屆競賽組投影片
 
 [Slides](graph_theory_basic/slides.html)
 
+## Shortest Path
+
+[Slides](shortest_path/slides.html)
+
 # Dynamic Programming
 
 ## Basic

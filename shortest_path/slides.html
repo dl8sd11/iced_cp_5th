@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="ToMmyDong">
+  <title>Graph Theory</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Graph Theory</h1>
+  <p class="author">ToMmyDong</p>
+  <p class="date">October 22th, 2019</p>
+</section>
+
+<section><section id="intro" class="title-slide slide level1"><h1>Intro</h1></section><section id="大綱" class="slide level2">
+<h2>大綱</h2>
+<ul>
+<li>Definition</li>
+<li>Algorithms
+<ul>
+<li>Floyd Washall</li>
+<li>Dijkstra</li>
+<li>Bellman Ford</li>
+<li>SPFA</li>
+<li><strong>Feature</strong> 01-BFS</li>
+</ul></li>
+<li>Problem</li>
+</ul>
+</section></section>
+<section><section id="定義" class="title-slide slide level1"><h1>定義</h1></section><section id="路徑" class="slide level2">
+<h2>路徑</h2>
+</section><section id="最短路徑" class="slide level2">
+<h2>最短路徑</h2>
+</section></section>
+<section><section id="演算法" class="title-slide slide level1"><h1>演算法</h1></section><section id="just-relax" class="slide level2">
+<h2><del>Just Relax</del></h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mi>i</mi><mi>s</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo><mo>,</mo><mi>d</mi><mi>i</mi><mi>s</mi><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo>,</mo><mi>d</mi><mi>i</mi><mi>s</mi><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">dis[i][j] = min(dis[i][j], dis[i][k], dis[k][j])</annotation></semantics></math></p>
+</section></section>
+<section><section id="floyd-warshall" class="title-slide slide level1"><h1>Floyd Warshall</h1></section><section id="lets-dp" class="slide level2">
+<h2>Let’s DP</h2>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo><mo>≡</mo><mi>只</mi><mi>考</mi><mi>慮</mi><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mi>.</mi><mi>.</mi><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mi>i</mi><mi>到</mi><mi>j</mi><mi>最</mi><mi>短</mi><mi>距</mi><mi>離</mi></mrow><annotation encoding="application/x-tex">dp[k][i][j] \equiv 只考慮[0..k] i 到 j 最短距離</annotation></semantics></math></p>
+</section><section id="轉移" class="slide level2">
+<h2>轉移</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>i</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>k</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="prefix">[</mo><mi>j</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex"> dp[k][i][j] = dp[k-1][i][k] + dp[k-1][k][j] </annotation></semantics></math></p>
+<p>(3D, 0D) ?</p>
+</section><section id="mle" class="slide level2">
+<h2>MLE ?</h2>
+<p>滾動陣列</p>
+</section><section id="code" class="slide level2">
+<h2>Code ?</h2>
+</section><section id="每個人都會發生過的事" class="slide level2">
+<h2>每個人都會發生過的事</h2>
+</section></section>
+<section><section id="dijkstra" class="title-slide slide level1"><h1>Dijkstra</h1></section><section id="條件" class="slide level2">
+<h2>條件</h2>
+</section><section id="怎麼念" class="slide level2">
+<h2>怎麼念</h2>
+<p>D “<a href="https://www.youtube.com/watch?v=ILHHAK_Dmpg">ijk</a>” 什麼的</p>
+</section><section id="最短路徑樹" class="slide level2">
+<h2>最短路徑「樹」</h2>
+</section><section id="relax-順序很重要" class="slide level2">
+<h2>Relax 順序很重要</h2>
+</section><section id="證明咧" class="slide level2">
+<h2>證明咧?</h2>
+</section><section id="點權還是邊權" class="slide level2">
+<h2>點權還是邊權</h2>
+<p>CC</p>
+</section><section id="code-1" class="slide level2">
+<h2>Code</h2>
+</section></section>
+<section><section id="bellman-ford" class="title-slide slide level1"><h1>Bellman Ford</h1></section><section id="條件-1" class="slide level2">
+<h2>條件</h2>
+</section><section id="如果我亂更新" class="slide level2">
+<h2>如果我亂更新…</h2>
+<p>V 個點要被更新</p>
+<p>至少每 E 次更新會拓展最短路徑樹</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mi>V</mi><mo>⋅</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(V\cdot E)</annotation></semantics></math></p>
+</section><section id="如果我繼續更新" class="slide level2">
+<h2>如果我繼續更新…</h2>
+<p>做完第 N 次如果跟 N-1 次結果不一樣？</p>
+</section></section>
+<section><section id="spfa" class="title-slide slide level1"><h1>SPFA</h1></section><section id="中二的名字" class="slide level2">
+<h2>中二的名字</h2>
+<p><strong>Shortest Path Faster Algorithm</strong></p>
+</section><section id="關鍵" class="slide level2">
+<h2>關鍵</h2>
+<p>很多次的 Relax 都是 “假的”</p>
+<p>如果 dis[i] 沒有被更新， 拿他來更新別人無意義</p>
+</section><section id="optimization" class="slide level2">
+<h2>Optimization</h2>
+<p>從 queue 裡面找點出來 Relax~</p>
+<p>有被更新到的點再推到 queue 裡面</p>
+</section><section id="complexity" class="slide level2">
+<h2>Complexity</h2>
+<p>期望值: O(kE) (聽說的XD)</p>
+<p>Worst Case: O(V)</p>
+</section></section>
+<section><section id="bfs" class="title-slide slide level1"><h1>01-BFS</h1></section><section id="為什麼-bfs-會對" class="slide level2">
+<h2>為什麼 BFS 會對</h2>
+<p>邊權都是 1</p>
+<p>+0, +0, +0, +0, +0, +0, +1, +1, +1, +1</p>
+</section><section id="如果今天有-0-1-這兩種邊" class="slide level2">
+<h2>如果今天有 {0, 1} 這兩種邊</h2>
+<ul>
+<li>queue -&gt; deque</li>
+<li>weight == 0 then push front</li>
+<li>weight == 1 then push back</li>
+</ul>
+</section><section id="正確性" class="slide level2">
+<h2>正確性</h2>
+<p>+0, +0, +0, +0, +0, +0, +1, +1, +1, +1</p>
+</section></section>
+<section><section id="problem" class="title-slide slide level1"><h1>Problem</h1></section><section id="隨機想的題目" class="slide level2">
+<h2>隨機想的題目</h2>
+<p>一張 V 個點 E 條邊的有相圖， 如果可以把最多一條邊反轉，求 S 到 T 點的最短距離。</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
