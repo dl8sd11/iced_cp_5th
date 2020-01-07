@@ -20,7 +20,11 @@ title: 第五屆競賽組投影片
 
 ## STL and Disjoint Set
 
-[Slides](data_structure_0/slides.html)
+[Slides](data_structure/stl_and_djs)
+
+## Segment Tree
+
+[Slides](data_structure/segment_tree.html)
 
 # 圖論
 

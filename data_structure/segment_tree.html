@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="ToMmyDong">
+  <title>線段樹</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">線段樹</h1>
+  <p class="author">ToMmyDong</p>
+  <p class="date">September ??, 2019</p>
+</section>
+
+<section><section id="大綱" class="title-slide slide level1"><h1>大綱</h1></section><section id="線段樹" class="slide level2">
+<h2>線段樹</h2>
+<ul>
+<li>RMQ</li>
+<li>Lazy Tag</li>
+<li><del>進擊的線段樹</del></li>
+</ul>
+</section></section>
+<section><section id="rmq" class="title-slide slide level1"><h1>RMQ</h1></section><section id="problem" class="slide level2">
+<h2>Problem</h2>
+<p>對 A[N] 進行以下操作</p>
+<ul>
+<li>詢問 A[L..R] 最小值</li>
+</ul>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>100000</mn></mrow><annotation encoding="application/x-tex">N\leq100000</annotation></semantics></math></p>
+</section><section id="solution" class="slide level2">
+<h2>Solution</h2>
+<p>經典的題目有很多解法:</p>
+<ul>
+<li>分塊</li>
+<li>sparse table</li>
+<li><strong>線段樹</strong></li>
+</ul>
+</section><section id="problem-1" class="slide level2">
+<h2>Problem</h2>
+<p>對 A[N] 進行以下操作</p>
+<ul>
+<li>詢問 A[L..R] 最小值</li>
+<li>修改 A[i] 值</li>
+</ul>
+</section><section id="把區間切斷" class="slide level2">
+<h2>把區間切斷</h2>
+<p><img data-src="../assets/2020-01-07-22-39-13.png" /></p>
+</section><section id="存上資料" class="slide level2">
+<h2>存上資料</h2>
+<p><img data-src="../assets/2020-01-07-22-42-52.png" /></p>
+</section><section id="修改" class="slide level2">
+<h2>修改</h2>
+<p><img data-src="../assets/2020-01-07-22-44-57.png" /></p>
+</section><section id="學會啦" class="slide level2">
+<h2>學會啦</h2>
+<p>Coding Time</p>
+</section><section id="可解範圍" class="slide level2">
+<h2>可解範圍</h2>
+<p>你可以做任何 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false" form="prefix">[</mo><mi>l</mi><mi>.</mi><mi>.</mi><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mi>u</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="prefix">[</mo><mi>l</mi><mi>.</mi><mi>.</mi><mi>m</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>A</mi><mo stretchy="false" form="prefix">[</mo><mi>m</mi><mi>.</mi><mi>.</mi><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">A[l..r) = fun(A[l..m), A[m..r))</annotation></semantics></math> 的題目</p>
+<ul>
+<li>單點修改 區間最小值</li>
+<li>單點修改 區間總和</li>
+<li>單點修改 區間積</li>
+<li>單點修改 區間最大公因數</li>
+<li>單點修改 區間最大連續和</li>
+</ul>
+</section><section id="區間修改呢" class="slide level2">
+<h2>區間修改呢</h2>
+<p>區間加值單點求值?</p>
+<ul>
+<li><del>差分轉換題目</del></li>
+<li>交換詢問和操作</li>
+</ul>
+</section></section>
+<section><section id="lazy-tag" class="title-slide slide level1"><h1>Lazy Tag</h1></section><section id="problem-2" class="slide level2">
+<h2>Problem</h2>
+<p>區間操作 區間詢問</p>
+</section><section id="圖形化" class="slide level2">
+<h2>圖形化</h2>
+<p><img data-src="../assets/2020-01-07-22-55-11.png" /></p>
+</section><section id="push" class="slide level2">
+<h2>Push</h2>
+<p><img data-src="../assets/2020-01-07-22-58-58.png" /></p>
+</section><section id="又學會啦" class="slide level2">
+<h2>又學會啦</h2>
+<p>Coding Time</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
